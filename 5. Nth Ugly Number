@@ -1,0 +1,25 @@
+class Solution:
+	def getNthUglyNo(self,n):
+		# code here
+        i2 = i3 = i5 = 0
+        dp = [1]
+        k = n
+        while n > 1:
+            two = 2*dp[i2]
+            three = 3*dp[i3]
+            five = 5*dp[i5]
+            
+            minimum = min(two,three,five)
+            if minimum == two:
+                i2 += 1
+                
+            if minimum == three:
+
+                i3 += 1
+                
+            if minimum == five:
+
+                i5 += 1
+            dp.append(minimum)    
+            n-=1    
+        return dp[k-1]
